@@ -23,6 +23,8 @@ public class DokterView extends javax.swing.JPanel {
      */
     public DokterView() {
         initComponents();
+        tampil_data();
+        ulang();
     }
 
     Connection con;
@@ -361,10 +363,9 @@ public class DokterView extends javax.swing.JPanel {
     }
 
     private void ubah_data() {
-      try{
+      try {
             con = DriverManager.getConnection(url, "root", "");
-            pst = con.prepareStatement("update dokter set  nama_dokter=?, spesialis=? where id_dokter=?");
-        
+            pst = con.prepareStatement("update dokter set nama_dokter=?, spesialis=? where id_dokter=?");
             pst.setString(1, textNama.getText());
             pst.setString(2, textSpesialis.getText());
             pst.setInt(6, Integer.parseInt(labelID.getText()));
